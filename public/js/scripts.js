@@ -1,19 +1,142 @@
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+(function () {
+  'use strict';
 
-  const formData = new FormData(this);
+  /* ── Element references ─────────────────────────────────── */
+  const navbar    = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
 
-  fetch("/contact", {
-    method: "POST",
-    body: new URLSearchParams(formData)
-  })
-    .then((response) => response.text())
-    .then((message) => {
-      alert(message);
-      this.reset();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("There was an error sending your message.");
+  /* ── 1. NAVBAR SCROLL STATE ─────────────────────────────── */
+  function onScroll() {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── 2. MOBILE MENU TOGGLE ──────────────────────────────── */
+  function openMenu() {
+    navLinks.classList.add('open');
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }
+
+  function toggleMenu() {
+    const isOpen = navLinks.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  }
+
+  navToggle.addEventListener('click', toggleMenu);
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', function (e) {
+    if (
+      navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !navToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900 && navLinks.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  /* ── 3. SCROLL REVEAL ───────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
     });
-});
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
+
+  /* ── 4. CONTACT FORM ────────────────────────────────────── */
+  const contactForm = document.getElementById('contactForm');
+
+  if (contactForm) {
+    const submitBtn  = document.getElementById('submitBtn');
+    const btnText    = submitBtn  ? submitBtn.querySelector('.btn-text')   : null;
+    const btnLoader  = submitBtn  ? submitBtn.querySelector('.btn-loader') : null;
+    const formStatus = document.getElementById('formStatus');
+
+    function setStatus(msg, type) {
+      if (!formStatus) return;
+      formStatus.textContent = msg;
+      formStatus.className = 'form-status ' + (type || '');
+    }
+
+    function setLoading(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      if (btnText)   btnText.hidden   = loading;
+      if (btnLoader) btnLoader.hidden = !loading;
+    }
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      setStatus('');
+      setLoading(true);
+
+      var formData = new FormData(contactForm);
+
+      fetch('/contact', {
+        method: 'POST',
+        body: new URLSearchParams(formData),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Server error ' + res.status);
+          return res.text();
+        })
+        .then(function (msg) {
+          setStatus(msg || 'Message sent! I\'ll be in touch soon.', 'success');
+          contactForm.reset();
+        })
+        .catch(function (err) {
+          console.error('Contact form error:', err);
+          setStatus('Something went wrong. Please try again or reach out directly.', 'error');
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    });
+  }
+
+})();

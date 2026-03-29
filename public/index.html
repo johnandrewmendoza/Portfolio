@@ -1,53 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="John Andrew Mendoza — Web Developer Portfolio" />
+  <title>Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! <b>I'm John Andrew G. Mendoza (Bachelor of Science in Computer Science)</b>, a passionate web designer and web developer with a strong eye for aesthetics and a mind for code. I specialize in crafting visually engaging, fully responsive, and highly functional websites that blend design excellence with robust development. From concept to launch, I bring digital ideas to life through a seamless integration of creative UI/UX design and modern front-end and back-end technologies.
+  <nav class="nav" id="navbar">
+    <a href="#home" class="nav-logo">DEVFOLIO<span>.</span></a>
 
-      With hands-on experience in <b>HTML, CSS, JavaScript, Php, React, Node.js</b>, and design tools like <b>Figma and Adobe XD</b>, I have delivered websites and applications that are not only beautiful but also intuitive and performance-optimized. I thrive on solving problems, improving user experiences, and creating clean, maintainable code that meets both user needs and business goals.
+    <ul class="nav-links" id="navLinks" role="menu">
+      <li><a href="#home"     role="menuitem">Home</a></li>
+      <li><a href="#about"    role="menuitem">About</a></li>
+      <li><a href="#projects" role="menuitem">Projects</a></li>
+      <li><a href="#contact"  role="menuitem">Contact</a></li>
+    </ul>
 
-      My approach to every project is grounded in collaboration, adaptability, and a commitment to quality. I enjoy working with diverse teams, listening closely to client needs, and finding innovative ways to bring their ideas to life. Whether it's designing a sleek user interface or building a scalable web solution, I aim to deliver work that not only looks great but also performs exceptionally.
+    <!-- Hamburger button -->
+    <button class="nav-toggle" id="navToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
+  </nav>
 
-      I'm always eager to take on new challenges, contribute to meaningful projects, and grow as both a designer and developer. I believe that technology has the power to inspire and connect people—and I’m excited to be part of that process. If you're looking for someone who's passionate, reliable, and always striving to improve, let’s connect and create something incredible together.
-    </p>
-  </section>
+  <section id="home" class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-shape s1"></div>
+      <div class="hero-shape s2"></div>
+      <div class="hero-shape s3"></div>
+    </div>
 
-  <section id="projects">
-    <h2>Projects</h2>
-      <p>This project highlights my experience, web development, UX design, data analysis through the development of a responsive website (or interactive data dashboard, etc.) designed to briefly explain project purpose, improve user engagement, streamline data visualization, automate reporting. I took charge of designing and implementing key features, including a clean and intuitive user interface, a secure and efficient backend, and dynamic interactive elements such as charts and real-time data updates.
-
-      Utilizing technologies like <b>JavaScript, Python, SQL</b>, and frameworks/tools such as <b>React, Node.js</b>, I ensured the solution is scalable, maintainable, and optimized for performance across devices. The primary goal was to solve (specific problem), enhance user experience, and deliver actionable insights through seamless integration of front-end and back-end components.
-
-      This project demonstrates my ability to combine technical skills with thoughtful design to create impactful digital products that meet both user needs and business objectives.</p>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Hello, I'm</p>
+      <h1 class="hero-name">John Andrew<br>Mendoza</h1>
+      <p class="hero-role">Web Developer &amp; Freelancer</p>
+      <p class="hero-desc">Passionate about building modern, responsive, and user-friendly web applications that solve real-world problems.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact"  class="btn btn-outline">Contact Me</a>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> +63 970 089 9978</a></p>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01</span>
+        <h2>About</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Hello! My name is <strong>John Andrew G. Mendoza</strong>, a web developer and freelancer with a strong interest in building systems that solve real-world problems and improve user experience through clean design and efficient functionality.</p>
+          <p>I developed a <em>City One-Stop Hub Website</em> for residents and tourists — allowing users to view city services, book establishments, and access important information all in one platform.</p>
+          <p>I also gained hands-on experience working with <em>Tax Declaration</em> systems at the City Housing and Urban Development Office in Calbayog City, handling data records and government information systems.</p>
+          <p>I'm always eager to learn new technologies and grow as a developer.</p>
+        </div>
+
+        <div class="about-skills">
+          <div class="skill-group reveal">
+            <h3>Programming Languages</h3>
+            <div class="skill-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">PHP</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Web Technologies</h3>
+            <div class="skill-tags">
+              <span class="tag">AJAX</span>
+              <span class="tag">JSON</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Development Skills</h3>
+            <div class="skill-tags">
+              <span class="tag">Frontend Dev</span>
+              <span class="tag">Backend Dev</span>
+              <span class="tag">Database Management</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">System Testing</span>
+              <span class="tag">Debugging</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02</span>
+        <h2>Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-number">01</div>
+          <div class="project-body">
+            <h3 class="project-title">City One-Stop Hub Website</h3>
+            <p class="project-sub">For Residents &amp; Tourists</p>
+            <p class="project-desc">A comprehensive web platform designed to centralize city services and tourism information — one place for establishments, government services, and transport.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li>User Registration &amp; Login System</li>
+                <li>Booking System with Schedule Selection</li>
+                <li>Hotels, Restaurants &amp; Food Hubs</li>
+                <li>Government Services Access</li>
+                <li>Attractions &amp; Tour Guide</li>
+                <li>Transport &amp; BookList</li>
+                <li>Fully Responsive UI</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">SQL</span>
+              <span class="tech-badge">AJAX</span>
+              <span class="tech-badge">JSON</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-number">02</div>
+          <div class="project-body">
+            <h3 class="project-title">Tax Declaration Record System</h3>
+            <p class="project-sub">City Housing &amp; Urban Development Office — Calbayog City</p>
+            <p class="project-desc">A data management project involving the organization and handling of tax declaration records, improving my experience with structured data and government documentation systems.</p>
+            <div class="project-features">
+              <h4>Experience Gained</h4>
+              <ul>
+                <li>Data encoding and organization</li>
+                <li>Database record handling</li>
+                <li>Document management</li>
+                <li>Information verification processes</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03</span>
+        <h2>Contact</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p>If you'd like to work with me or have any questions, feel free to send a message. I'll get back to you as soon as possible.</p>
+          <div class="contact-detail">
+            <span class="contact-label">Contact No.</span>
+            <span class="contact-value">+63 970-089-9978</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-label">Availability</span>
+            <span class="contact-value">Open to opportunities</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Calbayog City, Western Samar, Philippines</span>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form reveal" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="your email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What's on your mind?" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" hidden>Sending…</span>
+          </button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 &middot; Built with passion</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/scripts.js"></script>
 </body>
