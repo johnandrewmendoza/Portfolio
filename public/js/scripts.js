@@ -2,18 +2,36 @@
   'use strict';
 
   /* ── Element references ─────────────────────────────────── */
-  const navbar    = document.getElementById('navbar');
-  const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
+  const navbar      = document.getElementById('navbar');
+  const navToggle   = document.getElementById('navToggle');
+  const navLinks    = document.getElementById('navLinks');
+  const themeToggle = document.getElementById('themeToggle');
+  const html        = document.documentElement;
 
-  /* ── 1. NAVBAR SCROLL STATE ─────────────────────────────── */
+  /* ── 1. THEME (Light / Dark) ────────────────────────────── */
+  // Load saved preference; default to dark
+  var savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+
+  function toggleTheme() {
+    var current = html.getAttribute('data-theme');
+    var next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+  /* ── 2. NAVBAR SCROLL STATE ─────────────────────────────── */
   function onScroll() {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ── 2. MOBILE MENU TOGGLE ──────────────────────────────── */
+  /* ── 3. MOBILE MENU TOGGLE ──────────────────────────────── */
   function openMenu() {
     navLinks.classList.add('open');
     navToggle.classList.add('open');
@@ -29,11 +47,11 @@
   }
 
   function toggleMenu() {
-    const isOpen = navLinks.classList.contains('open');
+    var isOpen = navLinks.classList.contains('open');
     isOpen ? closeMenu() : openMenu();
   }
 
-  navToggle.addEventListener('click', toggleMenu);
+  if (navToggle) navToggle.addEventListener('click', toggleMenu);
 
   navLinks.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', closeMenu);
@@ -62,11 +80,11 @@
     }
   });
 
-  /* ── 3. SCROLL REVEAL ───────────────────────────────────── */
-  const revealEls = document.querySelectorAll('.reveal');
+  /* ── 4. SCROLL REVEAL ───────────────────────────────────── */
+  var revealEls = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window && revealEls.length) {
-    const revealObserver = new IntersectionObserver(
+    var revealObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -87,14 +105,14 @@
     });
   }
 
-  /* ── 4. CONTACT FORM ────────────────────────────────────── */
-  const contactForm = document.getElementById('contactForm');
+  /* ── 5. CONTACT FORM ────────────────────────────────────── */
+  var contactForm = document.getElementById('contactForm');
 
   if (contactForm) {
-    const submitBtn  = document.getElementById('submitBtn');
-    const btnText    = submitBtn  ? submitBtn.querySelector('.btn-text')   : null;
-    const btnLoader  = submitBtn  ? submitBtn.querySelector('.btn-loader') : null;
-    const formStatus = document.getElementById('formStatus');
+    var submitBtn  = document.getElementById('submitBtn');
+    var btnText    = submitBtn ? submitBtn.querySelector('.btn-text')   : null;
+    var btnLoader  = submitBtn ? submitBtn.querySelector('.btn-loader') : null;
+    var formStatus = document.getElementById('formStatus');
 
     function setStatus(msg, type) {
       if (!formStatus) return;
@@ -126,7 +144,7 @@
           return res.text();
         })
         .then(function (msg) {
-          setStatus(msg || 'Message sent! I\'ll be in touch soon.', 'success');
+          setStatus(msg || "Message sent! I'll be in touch soon.", 'success');
           contactForm.reset();
         })
         .catch(function (err) {

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="John Andrew Mendoza — Web Developer Portfolio" />
-  <title>Portfolio</title>
+  <title>John Andrew Mendoza Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,34 +14,44 @@
 </head>
 <body>
 
+  <!-- ===== NAVBAR ===== -->
   <nav class="nav" id="navbar">
-    <a href="#home" class="nav-logo">DEVFOLIO<span>.</span></a>
+    <a href="#home" class="nav-logo"><span>< jhnndrw /></span></a>
 
     <ul class="nav-links" id="navLinks" role="menu">
-      <li><a href="#home"     role="menuitem">Home</a></li>
-      <li><a href="#about"    role="menuitem">About</a></li>
-      <li><a href="#projects" role="menuitem">Projects</a></li>
-      <li><a href="#contact"  role="menuitem">Contact</a></li>
+      <li><a href="#home"      role="menuitem">Home</a></li>
+      <li><a href="#about"     role="menuitem">About</a></li>
+      <li><a href="#expertise" role="menuitem">Expertise</a></li>
+      <li><a href="#projects"  role="menuitem">Projects</a></li>
+      <li><a href="#contact"   role="menuitem">Contact</a></li>
     </ul>
 
-    <!-- Hamburger button -->
-    <button class="nav-toggle" id="navToggle"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-            aria-controls="navLinks">
-      <span class="bar bar-1"></span>
-      <span class="bar bar-2"></span>
-      <span class="bar bar-3"></span>
-    </button>
+    <div class="nav-right">
+      <!-- Light / Dark toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <!-- Hamburger -->
+      <button class="nav-toggle" id="navToggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="navLinks">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
   </nav>
 
+  <!-- ===== HERO ===== -->
   <section id="home" class="hero">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-shape s1"></div>
       <div class="hero-shape s2"></div>
       <div class="hero-shape s3"></div>
     </div>
-
     <div class="hero-content">
       <p class="hero-eyebrow">Hello, I'm</p>
       <h1 class="hero-name">John Andrew<br>Mendoza</h1>
@@ -54,71 +64,225 @@
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
   <section id="about" class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">01</span>
-        <h2>About</h2>
+        <span class="section-tag">about</span>
+        <h2>About me</h2>
+        <p class="section-subtitle">a bit about who I am</p>
       </div>
 
       <div class="about-grid">
-        <div class="about-text reveal">
-          <p>Hello! My name is <strong>John Andrew G. Mendoza</strong>, a web developer and freelancer with a strong interest in building systems that solve real-world problems and improve user experience through clean design and efficient functionality.</p>
-          <p>I developed a <em>City One-Stop Hub Website</em> for residents and tourists — allowing users to view city services, book establishments, and access important information all in one platform.</p>
-          <p>I also gained hands-on experience working with <em>Tax Declaration</em> systems at the City Housing and Urban Development Office in Calbayog City, handling data records and government information systems.</p>
-          <p>I'm always eager to learn new technologies and grow as a developer.</p>
+
+        <!-- Left: photo + links -->
+        <div class="about-photo-col reveal">
+          <div class="about-avatar-wrap">
+            <!-- Replace src with your actual photo -->
+            <img
+              src="images/logo.png"
+              alt="John Andrew Mendoza"
+              class="about-avatar"
+              id="profilePhoto"
+            />
+            <div class="avatar-ring"></div>
+          </div>
+
+          <div class="about-links">
+            <a href="https://github.com/" target="_blank" rel="noopener" class="about-link-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a href="https://andrewmendoza324@gmail.com" class="about-link-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Gmail
+            </a>
+          </div>
         </div>
 
-        <div class="about-skills">
-          <div class="skill-group reveal">
-            <h3>Programming Languages</h3>
-            <div class="skill-tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">PHP</span>
-              <span class="tag">SQL</span>
-            </div>
+        <!-- Right: text + skills -->
+        <div class="about-right">
+          <div class="about-text reveal">
+          <p>
+        Hello! I am <strong>John Andrew G. Mendoza</strong>, a BS Computer Science student passionate about developing systems that solve real-world problems and improve user experience. I enjoy building practical applications that focus on efficiency, usability, and clean design.
+        </p>
+
+      <p>
+        I am a motivated and detail-oriented individual who continuously seeks to improve my knowledge and technical abilities through hands-on projects and real system development. I enjoy challenges that strengthen my analytical thinking, problem-solving abilities, and creativity.
+      </p>
+
+      <p>
+        My goal is to become a professional developer who can contribute to building reliable and meaningful digital solutions. I am committed to continuous learning, professional growth, and applying technology to create systems that make processes easier and more accessible.
+      </p>
           </div>
-          <div class="skill-group reveal">
-            <h3>Web Technologies</h3>
-            <div class="skill-tags">
-              <span class="tag">AJAX</span>
-              <span class="tag">JSON</span>
-              <span class="tag">Responsive Design</span>
-            </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3>Development Skills</h3>
-            <div class="skill-tags">
-              <span class="tag">Frontend Dev</span>
-              <span class="tag">Backend Dev</span>
-              <span class="tag">Database Management</span>
-              <span class="tag">UI Design</span>
-              <span class="tag">System Testing</span>
-              <span class="tag">Debugging</span>
+  
+            <div class="skill-group reveal">
+              <h3>Development Skills</h3>
+              <div class="skill-tags">
+                <span class="tag">Frontend Dev</span>
+                <span class="tag">Backend Dev</span>
+                <span class="tag">Database Management</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">System Testing</span>
+                <span class="tag">Debugging</span>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section section-alt">
+  <!-- ===== EXPERTISE ===== -->
+  <section id="expertise" class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">02</span>
+        <span class="section-tag">expertise</span>
+        <h2>Expertise</h2>
+        <p class="section-subtitle">Technologies &amp; tools I work with</p>
+      </div>
+
+      <div class="expertise-grid">
+
+        <div class="expertise-card reveal">
+          <div class="expertise-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><polyline points="7 8 12 13 17 8"/></svg>
+          </div>
+          <h3 class="expertise-title">Frontend</h3>
+          <p class="expertise-desc">Building beautiful, responsive interfaces users love.</p>
+          <div class="expertise-tech-list">
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>HTML</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>React</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>CSS</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><polyline points="8 16 12 12 16 16"/><line x1="12" y1="12" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="expertise-title">Backend</h3>
+          <p class="expertise-desc">Crafting robust server-side logic and APIs.</p>
+          <div class="expertise-tech-list">
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Node.js</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>PHP</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="expertise-title">Database</h3>
+          <p class="expertise-desc">Structuring and managing data efficiently.</p>
+          <div class="expertise-tech-list">
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>XAMPP / MySQL</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M17.66 6.34a8 8 0 0 1 0 11.32"/><path d="M6.34 6.34a8 8 0 0 0 0 11.32"/></svg>
+          </div>
+          <h3 class="expertise-title">DevOps</h3>
+          <p class="expertise-desc">Versioning, deploying, and shipping with confidence.</p>
+          <div class="expertise-tech-list">
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Git</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Vercel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3 class="expertise-title">Design</h3>
+          <p class="expertise-desc">Designing intuitive, pixel-perfect user experiences.</p>
+          <div class="expertise-tech-list">
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>Figma</span>
+            </div>
+            <div class="expertise-tech-item">
+              <span class="expertise-dot"></span>
+              <span>UI/UX Design</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">projects</span>
         <h2>Projects</h2>
+        <p class="section-subtitle">a selection of my recent work</p>
       </div>
 
       <div class="projects-grid">
 
+        <!-- Project 1 -->
         <div class="project-card reveal">
-          <div class="project-number">01</div>
+          <div class="project-image-wrap">
+            <img
+              src="images/Cityhub.jpg"
+              alt="City One-Stop Hub Website"
+              class="project-image"
+              loading="lazy"
+            />
+            <div class="project-image-overlay">
+              <span class="project-num-badge">01</span>
+            </div>
+          </div>
           <div class="project-body">
             <h3 class="project-title">City One-Stop Hub Website</h3>
             <p class="project-sub">For Residents &amp; Tourists</p>
-            <p class="project-desc">A comprehensive web platform designed to centralize city services and tourism information — one place for establishments, government services, and transport.</p>
+            <p class="project-desc">A comprehensive web platform designed to centralize city services and tourism information — one place for establishments, hotels, restaurants, food hubs, government services, transport and tour guide.</p>
             <div class="project-features">
               <h4>Key Features</h4>
               <ul>
@@ -143,8 +307,19 @@
           </div>
         </div>
 
+        <!-- Project 2 -->
         <div class="project-card reveal">
-          <div class="project-number">02</div>
+          <div class="project-image-wrap">
+            <img
+              src="images/CityHousing.jpg"
+              alt="Tax Declaration Record System screenshot"
+              class="project-image"
+              loading="lazy"
+            />
+            <div class="project-image-overlay">
+              <span class="project-num-badge">02</span>
+            </div>
+          </div>
           <div class="project-body">
             <h3 class="project-title">Tax Declaration Record System</h3>
             <p class="project-sub">City Housing &amp; Urban Development Office — Calbayog City</p>
@@ -168,34 +343,24 @@
           </div>
         </div>
 
+  <!-- insert here to another projects -->
+
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">03</span>
-        <h2>Contact</h2>
+        <span class="section-tag">contact</span>
+        <h2>Get in touch</h2>
+        <p class="section-subtitle">have a project in mind? let's talk.</p>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info reveal">
-          <p>If you'd like to work with me or have any questions, feel free to send a message. I'll get back to you as soon as possible.</p>
-          <div class="contact-detail">
-            <span class="contact-label">Contact No.</span>
-            <span class="contact-value">+63 970-089-9978</span>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-label">Availability</span>
-            <span class="contact-value">Open to opportunities</span>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-label">Location</span>
-            <span class="contact-value">Calbayog City, Western Samar, Philippines</span>
-          </div>
-        </div>
 
+        <!-- Form -->
         <form id="contactForm" class="contact-form reveal" novalidate>
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -214,15 +379,67 @@
             <span class="btn-loader" hidden>Sending…</span>
           </button>
           <p class="form-status" id="formStatus" aria-live="polite"></p>
+
+          <!-- Contact info below button -->
+          <div class="contact-info-block">
+            <div class="contact-detail">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:andrewmendoza324@gmail.com" class="contact-value">andrewmendoza324@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              </span>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/" target="_blank" rel="noopener" class="contact-value">github.com/johnandrewmendoza</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.82-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+              </span>
+              <div>
+                <span class="contact-label">Phone</span>
+                <a href="tel:09700899978" class="contact-value">09700899978</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Calbayog City, Western Samar, Philippines</span>
+              </div>
+            </div>
+          </div>
         </form>
+
+        <!-- Right: intro text -->
+        <div class="contact-intro reveal">
+          <p>If you'd like to work with me or have any questions, feel free to send a message. I'll get back to you as soon as possible.</p>
+          <p>Whether it's a freelance project, a collaboration, or just a friendly hello — my inbox is always open.</p>
+          <div class="contact-availability">
+            <span class="avail-dot"></span>
+            <span>Available for freelance projects</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <p class="footer-copy">&copy; 2026 &middot; Built with passion</p>
+        <p class="footer-copy">< jhnndrw /> &middot; &copy;2026 </p>
       </div>
     </div>
   </footer>
