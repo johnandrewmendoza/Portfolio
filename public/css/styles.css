@@ -1,8 +1,4 @@
-/* ===========================
-   THEME VARIABLES
-=========================== */
 :root {
-  /* Light mode (default when data-theme="light") */
   --clr-bg: #ffffff;
   --clr-alt: #f4f6f8;
   --clr-dark: #1a1a2e;
