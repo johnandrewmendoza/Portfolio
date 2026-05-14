@@ -1,4 +1,4 @@
-git remote add origin https://github.com/yourusername/my-portfolio.git
+git remote add origin https://github.com/johnandrewmendoza/portfolio.git
 git branch -M main
 git add .
 git commit -m "Initial commit"
